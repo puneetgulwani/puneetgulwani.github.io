@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Cool | Puneet Gulwani's Blog]]></title>
+  <link href="https://puneetgulwani.github.io/blog/categories/cool/atom.xml" rel="self"/>
+  <link href="https://puneetgulwani.github.io/"/>
+  <updated>2017-04-18T14:02:38-05:00</updated>
+  <id>https://puneetgulwani.github.io/</id>
+  <author>
+    <name><![CDATA[Puneet Gulwani]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Some Awesome Title]]></title>
+    <link href="https://puneetgulwani.github.io/blog/2016/04/18/some-awesome-title/"/>
+    <updated>2016-04-18T12:03:17-05:00</updated>
+    <id>https://puneetgulwani.github.io/blog/2016/04/18/some-awesome-title</id>
+    <content type="html"><![CDATA[<p>This is a detail of the <B>post</B></p>
+
+<!--more-->
+
+
+<p>More details coming up.</p>
+]]></content>
+  </entry>
+  
+</feed>
