@@ -1,0 +1,104 @@
+<html>
+	<head>
+		<style>
+		#video_container { 
+			background-image: url('images/tv.png'); 
+			background-repeat: no-repeat;
+			background-size: 594px 355px;
+			height: 360px;
+		}
+		#video {
+			padding: 6px 11px;
+		}
+		#buttons {
+			width: 600px;
+			text-align: center
+		}
+		</style>
+		
+		<!-- Font Awesome -->
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div id="video_container">
+			<div id="video"></div>
+		</div>
+	
+		<div id="buttons">
+			<button id="previous-button"><i class="fa fa-fast-backward"></i></button>
+			<button id="play-button"><i id="playicon" class="fa fa-play"></i></button>
+			<button id="next-button"><i class="fa fa-fast-forward"></i></button>
+		</div>
+		
+		<script>
+			// https://developers.google.com/youtube/iframe_api_reference#Getting_Started
+			var videos = ['8yu8rtXThy8','YRhxdVk_sIs','RznKVRTFkBY'];
+			
+			// global variable for the player
+			var player;
+			var playIndex = 0;
+			  function onYouTubeIframeAPIReady() {
+				player = new YT.Player('video', {
+				  height: '315',
+				  width: '560',
+				  videoId: videos[playIndex],
+				  events: {
+					'onReady': onPlayerReady
+				  }
+				});				
+			  }
+			
+			function toggleIcon()
+			{
+				var icon = document.getElementById("playicon");
+				if(player.getPlayerState()!=1) {
+						icon.classList.toggle("fa-play");
+						icon.classList.toggle("fa-pause");
+				}
+				else{
+						icon.classList.toggle("fa-pause");
+						icon.classList.toggle("fa-play");
+				}				
+			}
+			
+			var playButton;
+			function onPlayerReady(event) {
+				player.cuePlaylist(videos);				
+
+			  // bind events
+			  playButton = document.getElementById("play-button");
+			  playButton.addEventListener("click", function() {
+					if(player.getPlayerState() != 1) {
+						player.playVideo();
+						
+					}
+					else {
+						player.pauseVideo();
+						
+					}
+					toggleIcon();
+			  });
+			  			  
+			  var previousButton = document.getElementById("previous-button");
+			  previousButton.addEventListener("click", function() {
+				player.previousVideo();
+				toggleIcon();
+			  });
+
+			  var nextButton = document.getElementById("next-button");
+			  nextButton.addEventListener("click", function() {
+				player.nextVideo();
+				toggleIcon();
+			  });
+			}
+			
+			// Inject YouTube API script
+			var tag = document.createElement('script');
+			tag.src = "http://www.youtube.com/player_api";
+			var firstScriptTag = document.getElementsByTagName('script')[0];
+			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+			
+		</script>
+
+	</body>
+</html>
